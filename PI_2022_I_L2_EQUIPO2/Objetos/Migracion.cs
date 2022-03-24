@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 using static System.Console;
 namespace PI_2022_I_L2_EQUIPO2.Objetos
 {
-    internal class Migracion:ComunClaseBase
+    internal class Migracion
     {
+        private string nombre;
+        private int id;
         private int numeroPasaporte;
         private int numeroBoleto;
         private int cantidadEquipaje;
@@ -20,8 +22,10 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
         private int numero;
 
         public Migracion(string pNombre, int pId, int pNumeroPasaporte, int pNumeroBoleto, int pCantidadEquipaje, Date pFechaIda, Date pFechaRegreso, string pMotivoViaje, string pCiudadSalida, string pCiudadLlegada) 
-            : base(pNombre, pId)
+            
         {
+            nombre = pNombre;
+            id = pId;
             numeroPasaporte = pNumeroPasaporte;
             numeroBoleto = pNumeroBoleto;
             cantidadEquipaje = pCantidadEquipaje;
@@ -31,7 +35,29 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             ciudadSalida = pCiudadSalida;
             ciudadLlegada = pCiudadLlegada;
         }
+        public Migracion()
+        {
 
+        }
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public int Id
+        {
+            get { return id; }
+            set 
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(
+                        nameof(value), value, $"{nameof(Id)} el rango esta fuera para Salario >0");
+                }
+                
+                id = value; 
+            }
+        }
         public int NumeroPasaporte
         {
             get { return numeroPasaporte; }
@@ -123,9 +149,10 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 ciudadLlegada = value;
             }
         }
-        public override void Agregar()
+        /*
+        public void Agregar()
         {
-            base.Agregar();
+            
 
             WriteLine("NumeroPasaporte");
             NumeroPasaporte =int.Parse( ReadLine());
@@ -208,7 +235,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                     WriteLine($"CiudadLLegada: {CiudadLlegada}");
                 }
             }
-        }
+        }*/
         public override string ToString() =>
             $"{base.ToString()}" +
             $"Numero de pasaporte: {NumeroPasaporte:C}\n" +

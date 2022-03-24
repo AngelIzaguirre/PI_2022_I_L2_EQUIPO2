@@ -8,9 +8,10 @@ using static System.Console;
 
 namespace PI_2022_I_L2_EQUIPO2.Objetos
 {
-    internal class Boleto:ComunClaseBase 
+    internal class Boleto
     {
-        
+        private string nombre;
+        private int id;
         private decimal costo;
         private string tipoBoleto;
         private int numeroBoleto;
@@ -20,8 +21,12 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
         private string ciudadLlegada;
         private int numero; 
 
-        public Boleto(string pNombre, int pId, decimal pCosto, string pTipoBoleto, int pNumeroBoleto, Date pFecha, string pAerolinea, string pCiudadSalida, string pCiudadLlegada) : base(pNombre, pId)
+        
+
+        public Boleto(string pNombre, int pId, decimal pCosto, string pTipoBoleto, int pNumeroBoleto, Date pFecha, string pAerolinea, string pCiudadSalida, string pCiudadLlegada)
         {
+            nombre = pNombre;
+            id = pId;
             costo = pCosto;
             tipoBoleto = pTipoBoleto;
             numeroBoleto = pNumeroBoleto;
@@ -30,7 +35,29 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             ciudadSalida = pCiudadSalida;
             ciudadLlegada = pCiudadLlegada;
         }
+        public Boleto()
+        {
 
+        }
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public int Id
+        {
+            get { return id; }
+            set 
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(
+                        nameof(value), value, $"{nameof(Id)} el rango esta fuera para Salario >0");
+                }
+                
+                id = value; 
+            }
+        }
         public decimal Costo
         {
             get { return costo; }
@@ -109,7 +136,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 ciudadLlegada = value;
             }
         }
-        public override void Agregar()
+        /*public override void Agregar()
         {
             base.Agregar();
 
@@ -187,7 +214,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                     WriteLine($"CiudadLLegada: {CiudadLlegada}");
                 }
             }
-        }
+        }*/
         public override string ToString() =>
             $"{base.ToString()}"+
             $"Costo: {Costo:C}\n" +

@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 using static System.Console;
 namespace PI_2022_I_L2_EQUIPO2.Objetos
 {
-    internal class Embarque:ComunClaseBase
+    internal class Embarque
     {
+            private string nombre;
+            private int id;
             private decimal costo;
             private string direccion;
             private int telefono;
@@ -18,8 +20,10 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             private int cantidad;
             private int numero;
 
-        public Embarque(string pNombre, int pId, decimal pCosto, string pDireccion, int pTelefono, Date pFechaIngreso, string pCompañia, decimal pPeso, int pCantidad) : base(pNombre, pId)
+        public Embarque(string pNombre, int pId, decimal pCosto, string pDireccion, int pTelefono, Date pFechaIngreso, string pCompañia, decimal pPeso, int pCantidad)
         {
+            nombre = pNombre;
+            id = pId;
             costo = pCosto;
             direccion = pDireccion;
             telefono = pTelefono;
@@ -28,7 +32,29 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             peso = pPeso;
             cantidad = pCantidad;
         }
-        
+        public Embarque()
+        {
+
+        }
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public int Id
+        {
+            get { return id; }
+            set 
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(
+                        nameof(value), value, $"{nameof(Id)} el rango esta fuera para Salario >0");
+                }
+                
+                id = value; 
+            }
+        }
             public decimal Costo
             {
                 get { return costo; }
@@ -117,7 +143,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 cantidad = value;
                 }
             }
-        public override void Agregar()
+        /*public override void Agregar()
         {
             base.Agregar();
 
@@ -195,7 +221,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                     WriteLine($"Cantidad: {Cantidad}");
                 }
             }
-        }
+        }*/
         public override string ToString() =>
                 $"{base.ToString()}" +
                 $"Costo: {Costo:C}\n" +

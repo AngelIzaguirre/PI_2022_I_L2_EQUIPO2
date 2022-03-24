@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 using static System.Console;
 namespace PI_2022_I_L2_EQUIPO2.Objetos
 {
-    internal class Mantenimiento:ComunClaseBase
+    internal class Mantenimiento
     {
+        private string nombre;
+        private int id;
         private Date fecha;
         private int numeroSerie;
         private decimal costo;
@@ -17,8 +19,10 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
         private string problema;
         private int numero;
 
-        public Mantenimiento(string pNombre, int pId, Date pFecha, int pNumeroSerie, decimal pCosto, string pMaterial, string pEmpresa, string pProblema) : base(pNombre, pId)
+        public Mantenimiento(string pNombre, int pId, Date pFecha, int pNumeroSerie, decimal pCosto, string pMaterial, string pEmpresa, string pProblema) 
         {
+            nombre = pNombre;
+            id = pId;
             fecha = pFecha;
             numeroSerie = pNumeroSerie;
             costo = pCosto;
@@ -26,7 +30,29 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             empresa = pEmpresa;
             problema = pProblema;
         }
+        public Mantenimiento()
+        {
 
+        }
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public int Id
+        {
+            get { return id; }
+            set 
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(
+                        nameof(value), value, $"{nameof(Id)} el rango esta fuera para Salario >0");
+                }
+                
+                id = value; 
+            }
+        }
         public Date Fecha
         {
             get { return fecha; }
@@ -94,9 +120,9 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 problema = value;
             }
         }
-        public override void Agregar()
+        public void Agregar()
         {
-            base.Agregar();
+            
 
             WriteLine("fecha: Año/Mes/Dia");
             Fecha = Date.Parse(ReadLine());
@@ -111,9 +137,9 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             WriteLine("Problema");
             Problema = ReadLine();
         }
-        public override void listar()
+        public void listar()
         {
-            base.listar();
+            
             WriteLine($"Fecha: {Fecha}");
             WriteLine($"Numero de Serie: {NumeroSerie}");
             WriteLine($"Costo: {Costo}");
@@ -121,7 +147,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             WriteLine($"Empresa: {Empresa}");
             WriteLine($"Problema: {Problema}");
         }
-        public override void Buscar()
+        public void Buscar()
         {
             WriteLine("Ingrese numero a buscar");
             numero = int.Parse(ReadLine());

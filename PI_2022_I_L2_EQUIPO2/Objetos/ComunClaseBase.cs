@@ -37,17 +37,12 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 id = value;
             }
         }
-        public virtual void Agregar()
+        public  void  Agregar ()
         {
-            WriteLine("Nombre");
-            Nombre = ReadLine();
-            WriteLine("Id");
-            Id = int.Parse(ReadLine());
         }
+        
         public virtual void listar()
         {
-            WriteLine($"Nombre: {Nombre}");
-            WriteLine($"Id: {Id}");
         }
 
         public virtual void Buscar()

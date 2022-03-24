@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using static System.Console;
 namespace PI_2022_I_L2_EQUIPO2.Objetos
 {
-    internal class Equipaje:ComunClaseBase
+    internal class Equipaje
     {
+        private string nombre;
+        private int id;
         private int hora;
         private int minuto;
         private string tipoEquipaje;
@@ -16,9 +18,11 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
         private string aerolinea;
         private string claseBoleto;
         private int numero;
-
-        public Equipaje(string pNombre, int pId, int phora, int pMinuto, string pTipoEquipaje, int pCantidadMaletas, decimal pPeso, string pAerolinea, string pClaseBoleto) : base(pNombre, pId)
+        
+        public Equipaje(string pNombre, int pId, int phora, int pMinuto, string pTipoEquipaje, int pCantidadMaletas, decimal pPeso, string pAerolinea, string pClaseBoleto) 
         {
+            nombre = pNombre;
+            id = pId;
             hora = phora;
             minuto = pMinuto;
             tipoEquipaje = pTipoEquipaje;
@@ -27,7 +31,29 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             aerolinea = pAerolinea;
             claseBoleto = pClaseBoleto;
         }
+        public Equipaje()
+        {
 
+        }
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public int Id
+        {
+            get { return id; }
+            set 
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(
+                        nameof(value), value, $"{nameof(Id)} el rango esta fuera para Salario >0");
+                }
+                
+                id = value; 
+            }
+        }
         public int Hora
         {
             get { return hora; }
@@ -114,80 +140,6 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
             }
         }
 
-        public override void Agregar()
-        {
-            base.Agregar();
-
-            WriteLine("Hora");
-            Hora = int.Parse(ReadLine());
-            WriteLine("Minuto");
-            Minuto = int.Parse(ReadLine());
-            WriteLine("TipoEquipaje");
-            TipoEquipaje = ReadLine();
-            WriteLine("Cantidadmaletas");
-            CantidadMaletas = int.Parse(ReadLine());
-            WriteLine("Peso");
-            peso = decimal.Parse(ReadLine());
-            WriteLine("Aerolinea");
-            Aerolinea = ReadLine();
-            WriteLine("Claseboleto");
-            ClaseBoleto = ReadLine();
-        }
-        public override void listar()
-        {
-            base.listar();
-            WriteLine($"Hora: {Hora}/{Minuto}");
-            WriteLine($"Tipo de Equipaje{TipoEquipaje}");
-            WriteLine($"Cantidad de Maletas: {CantidadMaletas}");
-            WriteLine($"Peso: {Peso}");
-            WriteLine($"Aerolinea: {Aerolinea}");
-            WriteLine($"Clase de Boleto: {ClaseBoleto}");
-        }
-        public override void Buscar()
-        {
-            WriteLine("Ingrese numero a buscar");
-            numero = int.Parse(ReadLine());
-
-            if (numero < 0 || numero > 8)
-            {
-                WriteLine("Numero fuera del Rango");
-            }
-            else
-            {
-                if (numero == 1)
-                {
-                    WriteLine($"Nombre: {Nombre}");
-                }
-                if (numero == 2)
-                {
-                    WriteLine($"Id: {Id}");
-                }
-                if (numero == 3)
-                {
-                    WriteLine($"Hora: {Hora}/{Minuto}");
-                }
-                if (numero == 4)
-                {
-                    WriteLine($"TipoEquipaje: {TipoEquipaje}");
-                }
-                if (numero == 5)
-                {
-                    WriteLine($"CantidadMaletas: {CantidadMaletas}");
-                }
-                if (numero == 6)
-                {
-                    WriteLine($"Peso: {Peso}");
-                }
-                if (numero == 7)
-                {
-                    WriteLine($"Aerolinea: {Aerolinea}");
-                }
-                if (numero == 8)
-                {
-                    WriteLine($"ClaseBoleto: {ClaseBoleto}");
-                }
-            }
-        }
         public override string ToString()=>
             $"{base.ToString()}" +
             $"Hora: {Hora:D2}/{Minuto:D2}\n" +
