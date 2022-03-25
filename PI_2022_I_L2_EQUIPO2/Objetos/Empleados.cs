@@ -17,7 +17,6 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
         private int edad;
         private string cargo;
         private string tipoContrato;
-        private int numero;
 
         public Empleados(string pNombre, int pId, decimal pSalario, string pGenero, int pNumeroContrato, int pEdad, string pCargo, string pTipoContrato) 
         {

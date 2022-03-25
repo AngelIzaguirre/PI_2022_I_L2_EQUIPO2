@@ -17,7 +17,6 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
         private string material;
         private string empresa;
         private string problema;
-        private int numero;
 
         public Mantenimiento(string pNombre, int pId, Date pFecha, int pNumeroSerie, decimal pCosto, string pMaterial, string pEmpresa, string pProblema) 
         {
@@ -120,79 +119,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 problema = value;
             }
         }
-        public void Agregar()
-        {
-            
-
-            WriteLine("fecha: Año/Mes/Dia");
-            Fecha = Date.Parse(ReadLine());
-            WriteLine("NumeeroSerie");
-            NumeroSerie =int.Parse( ReadLine());
-            WriteLine("Costo");
-            Costo = decimal.Parse(ReadLine());
-            WriteLine("Material");
-            Material =ReadLine();
-            WriteLine("Empresa");
-            Empresa = ReadLine();
-            WriteLine("Problema");
-            Problema = ReadLine();
-        }
-        public void listar()
-        {
-            
-            WriteLine($"Fecha: {Fecha}");
-            WriteLine($"Numero de Serie: {NumeroSerie}");
-            WriteLine($"Costo: {Costo}");
-            WriteLine($"Material: {Material}");
-            WriteLine($"Empresa: {Empresa}");
-            WriteLine($"Problema: {Problema}");
-        }
-        public void Buscar()
-        {
-            WriteLine("Ingrese numero a buscar");
-            numero = int.Parse(ReadLine());
-
-            if (numero < 0 || numero > 8)
-            {
-                WriteLine("Numero fuera del Rango");
-            }
-            else
-            {
-                if (numero == 1)
-                {
-                    WriteLine($"Nombre: {Nombre}");
-                }
-                if (numero == 2)
-                {
-                    WriteLine($"Id: {Id}");
-                }
-                if (numero == 3)
-                {
-                    WriteLine($"Fecha: {Fecha}");
-                }
-                if (numero == 4)
-                {
-                    WriteLine($"NumeroSerie: {NumeroSerie}");
-                }
-                if (numero == 5)
-                {
-                    WriteLine($"Costo: {Costo}");
-                }
-                if (numero == 6)
-                {
-                    WriteLine($"Material: {Material}");
-                }
-                if (numero == 7)
-                {
-                    WriteLine($"Empresa: {Empresa}");
-                }
-                if (numero == 8)
-                {
-                    WriteLine($"Problema: {Problema}");
-                }
-            }
-        }
-
+       
         public override string ToString() =>
             $"{base.ToString()}" +
             $"Fecha: {Fecha:C}\n" +

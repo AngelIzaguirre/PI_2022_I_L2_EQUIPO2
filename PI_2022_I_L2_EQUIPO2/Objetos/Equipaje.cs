@@ -17,7 +17,6 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
         private decimal peso;
         private string aerolinea;
         private string claseBoleto;
-        private int numero;
         
         public Equipaje(string pNombre, int pId, int phora, int pMinuto, string pTipoEquipaje, int pCantidadMaletas, decimal pPeso, string pAerolinea, string pClaseBoleto) 
         {
@@ -102,7 +101,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                         nameof(value), value, $"{nameof(CantidadMaletas)} el rango esta fuera para Numero de Contrato >0");
                 }
 
-                CantidadMaletas = value;
+                cantidadMaletas = value;
             }
         }
 

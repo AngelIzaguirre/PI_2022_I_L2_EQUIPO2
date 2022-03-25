@@ -19,9 +19,6 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
         private string aerolinea;
         private string ciudadSalida;
         private string ciudadLlegada;
-        private int numero; 
-
-        
 
         public Boleto(string pNombre, int pId, decimal pCosto, string pTipoBoleto, int pNumeroBoleto, Date pFecha, string pAerolinea, string pCiudadSalida, string pCiudadLlegada)
         {
@@ -136,85 +133,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 ciudadLlegada = value;
             }
         }
-        /*public override void Agregar()
-        {
-            base.Agregar();
-
-            WriteLine("Costo");
-            Costo = decimal.Parse(ReadLine());
-            WriteLine("TipoBoleto");
-            TipoBoleto = ReadLine();
-            WriteLine("NumeroBoleto");
-            NumeroBoleto = int.Parse(ReadLine());
-            WriteLine("Fecha: Año/Mes/Dia");
-            Fecha = Date.Parse(ReadLine());
-            WriteLine("AeroLinea");
-             Aerolinea= ReadLine();
-            WriteLine("CiudadSalida");
-            CiudadSalida = ReadLine();
-            WriteLine("Ciudadllegada");
-            CiudadLlegada = ReadLine();
-        }
-        public override void listar()
-        {
-            base.listar();
-            WriteLine($"Costo: {Costo}");
-            WriteLine($"Tipo de Boleto: {TipoBoleto}");
-            WriteLine($"Numero de Boleto: {NumeroBoleto}");
-            WriteLine($"Fecha: {Fecha}");
-            WriteLine($"Aerolinea: {Aerolinea}");
-            WriteLine($"Ciudad de Salida: {CiudadSalida}");
-            WriteLine($"Ciudad de Llegada: {CiudadLlegada}");
-        }
-        public override void Buscar()
-        {
-            WriteLine("Ingrese numero a buscar");
-            numero = int.Parse(ReadLine());
-
-            if (numero < 0 || numero > 9)
-            {
-                WriteLine("Numero fuera del Rango");
-            }
-            else
-            {
-                if (numero == 1)
-                {
-                    WriteLine($"Nombre: {Nombre}");
-                }
-                if (numero == 2)
-                {
-                    WriteLine($"Id: {Id}");
-                }
-                if (numero == 3)
-                {
-                    WriteLine($"Costo:  {Costo}");
-                }
-                if (numero == 4)
-                {
-                    WriteLine($"TipoBoleto: {TipoBoleto}");
-                }
-                if (numero == 5)
-                {
-                    WriteLine($"NumeroBoleto: {NumeroBoleto}");
-                }
-                if (numero == 6)
-                {
-                    WriteLine($"Fecha: {Fecha}");
-                }
-                if (numero == 7)
-                {
-                    WriteLine($"Aerolinea: {Aerolinea}");
-                }
-                if (numero == 8)
-                {
-                    WriteLine($"CiudadSalida: {CiudadSalida}");
-                }
-                if (numero == 9)
-                {
-                    WriteLine($"CiudadLLegada: {CiudadLlegada}");
-                }
-            }
-        }*/
+        
         public override string ToString() =>
             $"{base.ToString()}"+
             $"Costo: {Costo:C}\n" +

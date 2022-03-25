@@ -78,13 +78,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objetos\Boleto.cs" />
+    <Compile Include="Objetos\BoletoList.cs" />
     <Compile Include="Objetos\ComunClaseBase.cs" />
     <Compile Include="Objetos\Embarque.cs" />
+    <Compile Include="Objetos\EmbarqueList.cs" />
     <Compile Include="Objetos\EmpleadoList.cs" />
     <Compile Include="Objetos\Empleados.cs" />
     <Compile Include="Objetos\Equipaje.cs" />
+    <Compile Include="Objetos\EquipajeList.cs" />
     <Compile Include="Objetos\Mantenimiento.cs" />
+    <Compile Include="Objetos\MantenimientoList.cs" />
     <Compile Include="Objetos\Migracion.cs" />
+    <Compile Include="Objetos\MigracionList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
