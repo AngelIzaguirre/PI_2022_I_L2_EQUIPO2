@@ -37,19 +37,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 id = value;
             }
         }
-        public  void  Agregar ()
-        {
-        }
-        
-        public virtual void listar()
-        {
-        }
-
-        public virtual void Buscar()
-        {
-            
-        }
-
+       
         public override string ToString() =>
             $"Nombre: {Nombre:D60}\n" +
             $"Id: {Id}\n";

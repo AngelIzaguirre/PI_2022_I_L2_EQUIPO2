@@ -48,7 +48,7 @@ namespace PI_2022_I_L2_EQUIPO2.Objetos
                 if (value <= 0)
                 {
                     throw new ArgumentOutOfRangeException(
-                        nameof(value), value, $"{nameof(Id)} el rango esta fuera para Salario >0");
+                        nameof(value), value, $"{nameof(Id)} el rango esta fuera para Id >0");
                 }
                 
                 id = value; 

@@ -260,7 +260,7 @@ namespace PI_2022_I_L2_EQUIPO2
                         empleadoNew.Salario = decimal.Parse(ReadLine());
                         WriteLine("Genero");
                         empleadoNew.Genero = ReadLine();
-                        WriteLine("NUmero de contrato");
+                        WriteLine("Numero de contrato");
                         empleadoNew.NumeroContrato = int.Parse(ReadLine());
                         WriteLine("Edad");
                         empleadoNew.Edad = int.Parse(ReadLine());
@@ -323,7 +323,7 @@ namespace PI_2022_I_L2_EQUIPO2
                 }
                 else
                 {
-                    WriteLine("Id Libro Incorrecto, Intente de nuevo");
+                    WriteLine("error, sobrepaso el limite a 100");
                     ActualizarEmpleados();
                 }
             }
